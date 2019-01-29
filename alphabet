@@ -1,0 +1,7 @@
+def alphabet_position(text):
+    alph = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    Str = ""
+    for i in text:
+        if i.lower() in alph:
+            Str += str(alph.index(i.lower())+1) + " "
+    return("'" + str.strip(Str) + "'")
