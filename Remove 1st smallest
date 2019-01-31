@@ -1,0 +1,9 @@
+def remove_smallest(numbers):
+    NewLst = []
+    Check = 0
+    for i in numbers:
+        if i == min(numbers) and Check == 0:#remove only first smallest element
+            Check = 1
+            continue
+        else: NewLst += [i]
+    return(NewLst)
