@@ -1,5 +1,3 @@
-#!/bin/python3
-
 import math
 import os
 import random
@@ -18,12 +16,13 @@ import sys
 def getWays(n, c):
     from itertools import product
     Lst = []
-    for i in range(1,n+1):#number of tries should be as big as the aiming sum
-        for s in product(c, repeat=i):
+    Cnum = int(n/min(c))#smallest number of coins needed to meet sum
+    for i in range(1,Cnum+1):#number of tries should be as big as the aiming sum
+        for s in product(c, repeat=i):#sum all possible combination
             if sum(s) == n:
                 if sorted(s) not in Lst:
                     Lst += [sorted(s)]
-    print(Lst)
+    #print(Lst)
     return len(Lst)
 
 if __name__ == '__main__':
@@ -32,15 +31,15 @@ if __name__ == '__main__':
     first_multiple_input = input().rstrip().split()
 
     n = int(first_multiple_input[0])#the sum we have to generate
-    print(n)
+    #print(n)
     m = int(first_multiple_input[1])
-    print(m)
+    #print(m)
     c = list(map(int, input().rstrip().split()))
-    print(c)
+    #print(c)
     # Print the number of ways of making change for 'n' units using coins having the values given by 'c'
 
     ways = getWays(n, c)
-    print(ways)
+
     fptr.write(str(ways) + '\n')
 
     fptr.close()
